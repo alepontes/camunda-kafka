@@ -1,14 +1,19 @@
 const { Kafka } = require('kafkajs');
-const secounds = 1;
+const secounds = 5;
+const broker = process.env.KAFKA_CONNECT;
 
 const kafka = new Kafka({
-    clientId: 'test-group',
-    brokers: ['localhost:9092', 'localhost:9092'],
+    clientId: 'my-app',
+    brokers: [broker, broker],
 })
 
 const producer = kafka.producer();
 
 console.log(`Iniciando Worker`);
+
+const getExternalTask = () => { }
+
+const send = async () => { }
 
 const worker = async () => {
     await producer.connect();
